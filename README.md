@@ -1,121 +1,51 @@
-# 🔧 Pipeline AI Monitoring Dashboard
+Anomaly Detection Dashboard
 
-A real-time, full-stack dashboard for simulating and detecting anomalies in pipeline sensor data using AI.
+A real-time, full-stack AI-powered dashboard for monitoring sensor data and detecting anomalies using machine learning.
 
-Built to showcase applied machine learning, responsive UI/UX, and end-to-end system thinking — from data simulation to live alerting and model explainability.
+This project demonstrates applied AI/ML, modern frontend development, backend API integration, and real-time monitoring concepts.
 
----
+Overview
 
-## 📊 Overview
+Unexpected system anomalies can lead to operational failures and performance issues. This project simulates a smart monitoring system that:
 
-Pipeline failures can cause catastrophic economic and environmental damage. This project simulates a pipeline monitoring system that:
+Generates live sensor readings Detects anomalies using an Isolation Forest ML model Displays real-time alerts and anomaly scores Explains anomaly contributors Maintains anomaly logs for monitoring Tech Stack Layer Technologies Frontend React, Tailwind CSS, React Router Backend FastAPI, Python, Uvicorn AI/ML Scikit-learn, Isolation Forest, NumPy, joblib Simulation Python CSV Generator Deployment Vercel, Render Features Real-Time Sensor Simulation
 
-- 📈 Simulates live sensor readings (pressure, flow rate, temperature, vibration)
-- 🤖 Uses a trained Isolation Forest model to detect anomalies
-- 🚨 Shows real-time alerts in a dynamic dashboard
-- 🧠 Displays AI scoring and root cause contributors for each anomaly
-- 🧾 Logs anomalies with context and contributor analysis
+Simulates sensor data including:
 
-![Pipeline AI Dashboard Preview](https://i.imgur.com/69Bmb4J.jpeg)
+Pressure Temperature Flow Rate Vibration AI-Based Anomaly Detection
 
----
+Uses an Isolation Forest machine learning model to identify abnormal behavior in real time.
 
-## 🧰 Tech Stack
+Anomaly Scoring & Contributors
 
-| Layer        | Technologies Used                      |
-|--------------|-----------------------------------------|
-| Frontend     | React, Tailwind CSS, React Router       |
-| Backend      | FastAPI, Python, Uvicorn, Scikit-learn  |
-| AI/ML        | Isolation Forest, joblib, NumPy         |
-| Simulation   | Python (CSV generator)                  |
-| Deployment   | Vercel (frontend), Render (API server)  |
+Displays:
 
----
+Severity score Detection confidence Major contributing sensor features Interactive Dashboard UI
 
-## 🚀 Features
+Includes:
 
-- ✅ **Real-Time Sensor Simulation**  
-  Custom `generator.py` script generates normal operating ranges of pipeline sensors.
+Live sensor monitoring cards AI Detection Engine panel Animated alerts Anomaly logs page Responsive modern UI Persistent Logging
 
-- ✅ **Live AI Anomaly Detection**  
-  The backend uses a trained Isolation Forest model to predict whether input is anomalous.
+Detected anomalies are stored locally and can later be integrated with databases or cloud storage.
 
-- ✅ **Anomaly Scoring & Contributors**  
-  Displays severity score and which features most contributed to the detection.
+How It Works
 
-- ✅ **Dashboard UI**  
-  - Sensor cards (pressure, temperature, flow rate, vibration)
-  - AI Detection Engine Panel
-  - Animated Live Alerts
-  - Anomaly Logs page
+Generate Sensor Data cd simulator python generator.py
+Train the ML Model
+Run:
 
-- ✅ **Persistent Logs**  
-  Anomalies are stored and retrieved using local storage (can be connected to DB later).
+model_training.ipynb
 
----
+This notebook:
 
-## 📦 How It Works
+Loads sensor CSV data Normalizes features Trains Isolation Forest Saves: model.joblib scaler.joblib 3. Run Backend Server uvicorn inference_api:app --host 0.0.0.0 --port 10000 4. Run Frontend cd frontend npm install npm run dev 📂 Folder Structure ├── backend/ │ ├── inference_api.py │ ├── model_training.ipynb │ ├── model.joblib │ └── scaler.joblib │ ├── simulator/ │ ├── generator.py │ └── normal_data.csv │ ├── frontend/ │ ├── src/ │ │ ├── components/ │ │ ├── hooks/ │ │ ├── layout/ │ │ ├── pages/ │ │ └── App.jsx │ └── README.md
 
-1. **Data Generation**
-   ```bash
-   cd simulator
-   python generator.py
+Project Significance
 
-   
+This project reflects real-world applications in:
 
-2. **Model Training**
-  - Run model_training.ipynb to:
-   - Load CSV
-   - Normalize data
-   - Train Isolation Forest
-   - Save model.joblib and scaler.joblib
+AI-Powered Monitoring Predictive Analytics Industrial IoT Machine Learning Systems Real-Time Monitoring Dashboards
 
-3. Backend (FastAPI)
-```bash
-uvicorn inference_api:app --host 0.0.0.0 --port 10000
-```
-4. Frontend (React)
-```bash
-cd frontend
-npm install
-npm run dev
-```
+It combines machine learning, backend engineering, and responsive frontend development into a complete production-style monitoring system.
 
-📂 Folder Structure
-```bash
-├── backend/
-│   ├── inference_api.py
-│   ├── model_training.ipynb
-│   ├── model.joblib
-│   └── scaler.joblib
-├── simulator/
-│   ├── generator.py
-│   └── normal_data.csv
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── layout/
-│   │   ├── pages/
-│   │   └── App.jsx
-└── README.md
-```
-
-🌐 Live Demo
-Frontend: https://ai-pipeline-monitoring.vercel.app
-
-💡 Why This Matters
-This project simulates real-world infrastructure monitoring — relevant to:
-
-- 🛢 Energy & Utilities
-
-- 🧯 Industrial IoT
-
-- 💻 Predictive Maintenance
-
-- 🧠 AI-powered Ops dashboards
-
-_**It’s designed to bridge the gap between applied ML, system integration, and business value.**_
-
-👤 Author
-Ahmad Baker
+Author Pranjali Walke
